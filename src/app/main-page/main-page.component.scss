@@ -1,0 +1,45 @@
+
+
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    width: fit-content;
+    padding: 0 20px;
+    margin: 30px auto 0 auto;
+
+    div {
+        flex-basis: 25%;
+        text-align: center;
+        color: orange;
+        margin: 5px;
+
+        a {
+            width: 200px;
+            color: white;
+            text-decoration: none;
+
+            .image-wrapper {
+                display: flex;
+                justify-items: center;
+                justify-content: center;
+                position: relative;
+                height: 200px;
+                width: 150px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            img {
+                height: 100%;
+            }
+        }
+
+
+    }
+}
+
+
+

@@ -1,0 +1,24 @@
+
+
+<div class="gallery-wrapper">
+
+    <div *ngFor="let slide of slides; index as slideId">
+
+        <a [routerLink]="['/slider', slideId]" >
+
+            <h3>
+                    {{ slideId }}
+            </h3>
+
+            <div class="image-wrapper">
+                <img src="{{ slide.imagePath }}">
+            </div>
+
+            <p> {{ slide.time}} </p>
+
+
+        </a>
+
+    </div>
+
+</div>

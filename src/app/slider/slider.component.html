@@ -1,0 +1,31 @@
+
+<a class="link-back" [routerLink]="['']" > 
+    <img src="assets/image/cross.png">
+</a>
+
+<div class="slider-wrapper">
+
+    <div class="slider">
+
+        <div *ngFor="let slide of slides; index as slideId"  id="image{{slideId}}" class="slide"  >
+
+            <a [routerLink]="['/slider', slideId]" class="slide-link" (click)="rotateToSlide(slideId,'')" >
+
+                <h3>
+                        {{ slideId }}
+                </h3>
+
+                <div class="image-wrapper">
+                    <img src="{{ slide.imagePath }}">
+                </div>
+
+                <p> {{ slide.time}} </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
