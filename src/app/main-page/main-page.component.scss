@@ -1,20 +1,57 @@
+.banner-wrapper {
+    width: 80vw;
+    min-width: 300px;
+    max-height: 200px;
+    overflow: hidden;
+    margin: 0 auto;
 
+    @media all and ( max-width: 539px ) {
+        width: 90vw;
+        max-height: 300px;
+    }
+    .image-sea {
+        display: block;
+        width: 100%;
+        margin-top: -25%;
+    }
+}
 
 .gallery-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     justify-items: center;
-    text-align: center;
-    width: fit-content;
+    width: 80vw;
     padding: 0 20px;
     margin: 30px auto 0 auto;
 
+    @media all and ( max-width: 1429px ) {
+        justify-content: space-around;
+    }
+
+    @media all and ( max-width: 539px ) {
+        width: 90vw;
+        min-width: 250px;
+        padding: 0;
+    }
+
+    .slide {
+        margin-top: 30px;
+    }
+
     div {
-        flex-basis: 25%;
-        text-align: center;
+        width: 370px;
+        flex-basis: 30%;
         color: orange;
-        margin: 5px;
+
+        @media all and ( max-width: 1429px ) {
+            flex-basis: 50%;
+        }
+
+        @media all and ( max-width: 959px ) {
+            flex-basis: 100%;
+            width: unset;
+        }
 
         a {
             width: 200px;
@@ -25,19 +62,27 @@
                 display: flex;
                 justify-items: center;
                 justify-content: center;
+                align-items: center;
                 position: relative;
                 height: 200px;
-                width: 150px;
                 overflow: hidden;
                 margin: 0 auto;
             }
 
             img {
-                height: 100%;
+                position: absolute;
+                width: 100%;
+            }
+
+            h3, p {
+                width: 370px;
+                margin: 10px auto 0 auto;
+
+                @media all and ( max-width: 959px ) {
+                    width: unset;
+                }
             }
         }
-
-
     }
 }
 

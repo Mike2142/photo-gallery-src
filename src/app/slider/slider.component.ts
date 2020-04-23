@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { Component, HostListener, AfterViewInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { slides } from '../slides';
@@ -13,22 +13,20 @@ import { slides } from '../slides';
 export class SliderComponent implements AfterViewInit {
 
   slides = slides;
+  slide;
   slideID;
 
   rotateToSlide = function(slideID, scrollStyle) {
+
     this.changeOpacityAll();
     this.slide = document.querySelector( `#image${slideID}` );
     let slide = this.slide;
+    let slideWidth = parseInt( window.getComputedStyle(slide).getPropertyValue('width') );
     let slideOffset = slide.offsetLeft;
-
     let slider = document.querySelector('.slider-wrapper');
-    let sliderWidth = window.getComputedStyle(slider).getPropertyValue('width');
-    let slideExtraOffset;
-    if (sliderWidth == '300px') {
-      slideExtraOffset = 50;
-    } else {
-      slideExtraOffset = 100;
-    }
+
+    let windowWidth = document.documentElement.clientWidth;
+    let slideExtraOffset = (windowWidth - slideWidth) / 2;
 
     if ( scrollStyle == 'instantScroll' ) {
       slider.classList.add('instant-scroll');
@@ -53,6 +51,15 @@ export class SliderComponent implements AfterViewInit {
 
   }
 
+  // авто-скрол при изменении ширины слайдера
+  @HostListener('window:resize', ['$event'])
+  handleResize() {
+    let windowWidth = document.documentElement.clientWidth;
+    if ( windowWidth >= 320 ) {
+      this.rotateToSlide(this.slideID, 'instantScroll');
+    }
+  };
+
   constructor(
     private route: ActivatedRoute,
   ) { }
@@ -67,20 +74,12 @@ export class SliderComponent implements AfterViewInit {
       // отмотать до слайда
       this.rotateToSlide(this.slideID, 'instantScroll');
 
-      // отключить скролл слайдера клавиатурой
+      // отключить скрол слайдера клавиатурой
       window.addEventListener("keydown", function(e) {
           if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
               e.preventDefault();
           }
       }, false);
-
-      // обновлять страницу при переходе между версиями адаптивности
-      window.addEventListener("resize", function() {
-        let windowWidth = this.window.innerWidth;
-        if ( windowWidth >= 539 && windowWidth <= 540 ) {
-          this.location.reload();
-        }
-      });
 
   }
 

@@ -1,5 +1,5 @@
 
-<a class="link-back" [routerLink]="['']" > 
+<a class="link-back" [routerLink]="['']" >
     <img src="assets/image/cross.png">
 </a>
 
@@ -11,15 +11,13 @@
 
             <a [routerLink]="['/slider', slideId]" class="slide-link" (click)="rotateToSlide(slideId,'')" >
 
-                <h3>
-                        {{ slideId }}
-                </h3>
-
                 <div class="image-wrapper">
                     <img src="{{ slide.imagePath }}">
                 </div>
 
-                <p> {{ slide.time}} </p>
+                <h3>
+                    Большой заголовок слайда, очень длинный и совсем не короткий
+                </h3>
 
             </a>
 

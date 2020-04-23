@@ -1,26 +1,21 @@
 .link-back {
     display: block;
     width: fit-content;
-    height: 20px;
-    margin: 10px auto 0 auto;
+    height: 60px;
+    margin: 10px 40px 0 auto;
     img {
-        width: 20px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
     }
 }
 .slider-wrapper {
     position: relative;
-    width: 500px;
     margin: 0 auto;
 
     overflow-x: auto;
     pointer-events: none;
     scroll-behavior: smooth;
     scrollbar-width: none;
-
-    @media all and ( max-width: 539px ) {
-        width: 300px;
-    }
 
     &::-webkit-scrollbar {
         display: none;
@@ -35,15 +30,21 @@
 .slider {
     display: flex;
     width: fit-content;
-    padding: 0 500px;
+    padding: 0 2000px;
 
     .slide {
-
-        text-align: center;
         color: orange;
-        margin: 5px;
+        margin: 5px 20px;
         opacity: 0.4;
         pointer-events: all;
+
+        @media all and ( max-width: 1439px ) {
+            margin: 5px 10px;
+        }
+
+        @media all and ( max-width: 767px ) {
+            margin: 5px;
+        }
         
         &.active {
             opacity:1
@@ -53,7 +54,6 @@
         }
 
         a {
-            width: 200px;
             color: white;
             text-decoration: none;
 
@@ -61,21 +61,26 @@
                 display: flex;
                 justify-items: center;
                 justify-content: center;
+                align-items: center;
                 position: relative;
-                height: 50vh;
-                width: 300px;
+                width: 50vw;
+                min-width: 224px;
+                height: 70vh;
+                max-height: 600px;
                 overflow: hidden;
                 margin: 0 auto;
-                @media all and ( max-width: 539px ) {
-                    width: 200px;
+                @media all and ( max-height: 500px ) {
+                    height: 50vh;
                 }
             }
 
             img {
-                height: 100%;
+                position: absolute;
+                width: 100%;
+                min-width: 1008px;
+                min-height: 600px;
             }
         }
-
 
     }
 

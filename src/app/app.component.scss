@@ -21,26 +21,4 @@ p {
 margin: 0;
 }
 
-.image-wrapper {
-    width: 80vw;
-    min-width: 300px;
-    max-height: 200px;
-    overflow: hidden;
-    margin: 20px auto 0 auto;
 
-    @media all and ( max-width: 539px ) {
-        width: 90vw;
-        max-height: 300px;
-    }
-}
-
-.image-sea {
-    display: block;
-    width: 100%;
-    margin-top: -25%;
-}
-
-button {
-    display: block;
-    margin: 20px auto;
-}

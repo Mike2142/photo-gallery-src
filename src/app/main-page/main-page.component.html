@@ -1,21 +1,25 @@
 
+<div class="banner-wrapper">
+
+    <img class="image-sea" src="assets/image/sea.jpg">
+
+</div>
 
 <div class="gallery-wrapper">
 
-    <div *ngFor="let slide of slides; index as slideId">
+    <div *ngFor="let slide of slides; index as slideId" class="slide">
 
         <a [routerLink]="['/slider', slideId]" >
-
-            <h3>
-                    {{ slideId }}
-            </h3>
 
             <div class="image-wrapper">
                 <img src="{{ slide.imagePath }}">
             </div>
 
-            <p> {{ slide.time}} </p>
+            <h3>
+                Большой заголовок слайда, очень длинный и совсем не короткий
+            </h3>
 
+            <p> {{ slide.time}} </p>
 
         </a>
 
