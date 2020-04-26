@@ -30,10 +30,10 @@ export class SliderComponent implements AfterViewInit {
 
     if ( scrollStyle == 'instantScroll' ) {
       slider.classList.add('instant-scroll');
-      slider.scrollLeft = 0 + slideOffset - slideExtraOffset;
+      slider.scrollLeft = slideOffset - slideExtraOffset;
       slider.classList.remove('instant-scroll');
     } else {
-      slider.scrollLeft = 0 + slideOffset - slideExtraOffset;
+      slider.scrollLeft = slideOffset - slideExtraOffset;
     }
 
     slide.classList.add('active');
